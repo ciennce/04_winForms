@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -23,9 +24,15 @@ namespace WindowsFormsApp3_2022vs
             InitializeComponent();
 
             TimeStamp();
+            log.CollectionChanged += Log_CollectionChanged;
         }
 
+        private void Log_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            TimeStamp();
+        }
 
+        ObservableCollection<string> log = new ObservableCollection<string>();
         public void TimeStamp()
         {
             string date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -41,6 +48,21 @@ namespace WindowsFormsApp3_2022vs
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     sw.WriteLine($"Log file created on {DateTime.Now}");
+                    foreach(var item in log)
+                    {
+                        sw.WriteLine(item);
+                    }
+                }
+
+            }
+            else
+            {
+                using(StreamWriter sw = File.AppendText(path))
+                {
+                    foreach(var item in log)
+                    {
+                        sw.WriteLine(item);
+                    }
                 }
             }
 
@@ -81,6 +103,7 @@ namespace WindowsFormsApp3_2022vs
             }
             
             numCount.Add(0.0);
+            log.Add("0");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -257,6 +280,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "1";
             }
             numCount.Add(1.0);
+            log.Add("1");
         } //Number 1
 
         char operation;
