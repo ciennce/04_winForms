@@ -116,7 +116,6 @@ namespace WindowsFormsApp3_2022vs
             }
             numCount.Add(2.0);
             log.Add("2");
-            log.Add("");
         }
 
         private void n3_Click(object sender, EventArgs e)
@@ -282,7 +281,7 @@ namespace WindowsFormsApp3_2022vs
             }
             numCount.Add(1.0);
             log.Add("1");
-            log.Add("");
+            
         } //Number 1
 
         char operation;
