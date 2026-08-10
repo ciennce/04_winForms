@@ -21,10 +21,32 @@ namespace WindowsFormsApp3_2022vs
         public Form1()
         {
             InitializeComponent();
+
+            TimeStamp();
         }
 
-        const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
-        string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
+
+        public void TimeStamp()
+        {
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string folderPath = $@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\Log txt";
+            string path = Path.Combine(folderPath, $"Log_{date}.txt");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine($"Log file created on {DateTime.Now}");
+                }
+            }
+
+        }
+
+
 
         new List<double> history = new List<double>();
 
@@ -36,15 +58,15 @@ namespace WindowsFormsApp3_2022vs
 
 
 
+        const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
+        string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
+
+
+
+
         
 
-
-
-
         string input = string.Empty;
-
- 
-
 
 
         private void n0_Click(object sender, EventArgs e)
@@ -215,8 +237,6 @@ namespace WindowsFormsApp3_2022vs
 
 
 
-
-
         List<double> numCount = new List<double>();
         List<double> finalNumCount = new List<double>();
 
@@ -344,5 +364,9 @@ namespace WindowsFormsApp3_2022vs
         {
             calcBox.Text = history.Last().ToString();
         }
+
+        
     }
+
+
 }
