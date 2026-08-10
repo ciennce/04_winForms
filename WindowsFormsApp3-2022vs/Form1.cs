@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml; //XML
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+
 
 namespace WindowsFormsApp3_2022vs
 {
@@ -18,6 +22,11 @@ namespace WindowsFormsApp3_2022vs
         {
             InitializeComponent();
         }
+
+        const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
+        string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
+
+        new List<double> history = new List<double>();
 
         private void calcBox_TextChanged(object sender, EventArgs e)
         {
@@ -158,7 +167,29 @@ namespace WindowsFormsApp3_2022vs
 
         private void button15_Click(object sender, EventArgs e)
         {
-        
+            using (XmlWriter writer = XmlWriter.Create(dateipfad, new XmlWriterSettings() { Indent = true }))
+
+            {
+
+                writer.WriteStartDocument();
+                writer.WriteStartElement("Datenbank");
+                writer.WriteStartElement("History");
+
+                foreach (var item in history)
+
+                {
+
+                    writer.WriteStartElement("Ergebnis");
+                    writer.WriteValue(item);
+                    writer.WriteEndElement();
+
+                }
+
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+
+            }
+
         }
 
         private void dot_Click(object sender, EventArgs e)  //FIX!!! "." notation klappt nicht, konkantinierung umbauen. Logic ändern.
@@ -263,6 +294,7 @@ namespace WindowsFormsApp3_2022vs
                     result += finalNumCount[i];
                 }
                 calcBox.Text = result.ToString();
+                history.Add(result);
                 finalNumCount.Clear();
             }
 
@@ -275,6 +307,7 @@ namespace WindowsFormsApp3_2022vs
                     result -= finalNumCount[i];   
                 }
                 calcBox.Text = result.ToString();
+                history.Add(result);
                 finalNumCount.Clear();
             }
 
@@ -288,6 +321,7 @@ namespace WindowsFormsApp3_2022vs
                     result /= finalNumCount[i];   
                 }
                 calcBox.Text = result.ToString();
+                history.Add(result);
                 finalNumCount.Clear();
             }
 
@@ -299,6 +333,7 @@ namespace WindowsFormsApp3_2022vs
                     result *= finalNumCount[i];   
                 }
                 calcBox.Text = result.ToString();
+                history.Add(result);
                 finalNumCount.Clear();
 
             }
