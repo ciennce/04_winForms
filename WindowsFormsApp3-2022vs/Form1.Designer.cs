@@ -277,6 +277,7 @@
             this.Load.TabIndex = 12;
             this.Load.Text = "Load";
             this.Load.UseVisualStyleBackColor = false;
+            this.Load.Click += new System.EventHandler(this.Load_Click);
             // 
             // n9
             // 

@@ -340,5 +340,9 @@ namespace WindowsFormsApp3_2022vs
 
         }
 
+        private void Load_Click(object sender, EventArgs e)
+        {
+            calcBox.Text = history.Last().ToString();
+        }
     }
 }
