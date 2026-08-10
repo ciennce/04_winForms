@@ -1,0 +1,11 @@
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\bin\Debug\WindowsFormsApp3-2022vs.exe.config
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\bin\Debug\WindowsFormsApp3-2022vs.exe
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\bin\Debug\WindowsFormsApp3-2022vs.pdb
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.csproj.AssemblyReference.cache
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3_2022vs.Form1.resources
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3_2022vs.Properties.Resources.resources
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.csproj.GenerateResource.cache
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.csproj.CoreCompileInputs.cache
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.exe
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.pdb
+G:\IT-Softwareentwicklung\HoppeM\Aufgaben\04 Bearbeitung\CSharp_Windows_Forms\WindowsFormsApp3-2022vs\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.exe.config
