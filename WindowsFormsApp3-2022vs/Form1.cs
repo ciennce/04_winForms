@@ -291,6 +291,7 @@ namespace WindowsFormsApp3_2022vs
 
             operation = '+';
             calcBox.Text = operation.ToString();
+            log.Add("+");
         }
 
         private void minus_Click(object sender, EventArgs e)
@@ -329,6 +330,8 @@ namespace WindowsFormsApp3_2022vs
 
         private void equals_Click(object sender, EventArgs e) //=
         {
+            log.Add("=");
+
             ProcessFinalNumCountLogic();
             if (operation == '+')
             {
@@ -340,6 +343,7 @@ namespace WindowsFormsApp3_2022vs
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
+                log.Add(result.ToString());
                 finalNumCount.Clear();
             }
 
@@ -353,6 +357,7 @@ namespace WindowsFormsApp3_2022vs
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
+                log.Add(result.ToString());
                 finalNumCount.Clear();
             }
 
@@ -367,6 +372,7 @@ namespace WindowsFormsApp3_2022vs
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
+                log.Add(result.ToString());
                 finalNumCount.Clear();
             }
 
@@ -379,8 +385,8 @@ namespace WindowsFormsApp3_2022vs
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
+                log.Add(result.ToString());
                 finalNumCount.Clear();
-
             }
 
         }
