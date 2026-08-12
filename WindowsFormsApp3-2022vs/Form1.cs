@@ -19,12 +19,15 @@ namespace WindowsFormsApp3_2022vs
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
 
+
+            
             TimeStamp();
-            log.CollectionChanged += Log_CollectionChanged;
+            log2.CollectionChanged += Log_CollectionChanged;
         }
 
         private void Log_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -32,7 +35,10 @@ namespace WindowsFormsApp3_2022vs
             TimeStamp();
         }
 
-        ObservableCollection<string> log = new ObservableCollection<string>();
+        List<string> log = new List<string>();
+
+        ObservableCollection<string> log2 = new ObservableCollection<string>();
+
         public void TimeStamp()
         {
             string date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -44,7 +50,7 @@ namespace WindowsFormsApp3_2022vs
                 Directory.CreateDirectory(folderPath);
             }
 
-            string combinedLog = string.Concat(log);
+            
 
 
 
@@ -52,7 +58,7 @@ namespace WindowsFormsApp3_2022vs
             {
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(combinedLog);
+                    sw.WriteLine(log2);
                 }
 
             }
@@ -60,7 +66,7 @@ namespace WindowsFormsApp3_2022vs
             {
                 using(StreamWriter sw = File.AppendText(path))
                 {
-                    sw.WriteLine(combinedLog);
+                    sw.WriteLine(string.Join(", ", log2));
                 }
             }
 
@@ -75,16 +81,8 @@ namespace WindowsFormsApp3_2022vs
 
         }
 
-
-
-
         const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
         string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
-
-
-
-
-        
 
         string input = string.Empty;
 
@@ -129,6 +127,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "3";
             }
             numCount.Add(3.0);
+            log.Add("3");
         }
 
         private void n4_Click(object sender, EventArgs e)
@@ -142,6 +141,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "4";
             }
             numCount.Add(4.0);
+            log.Add("4");
         }
 
         private void n5_Click(object sender, EventArgs e)
@@ -155,6 +155,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "5";
             }
             numCount.Add(5.0);
+            log.Add("5");
         }
 
         private void n6_Click(object sender, EventArgs e)
@@ -168,6 +169,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "6";
             }
             numCount.Add(6.0);
+            log.Add("6");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -181,19 +183,22 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "7";
             }
             numCount.Add(7.0);
+            log.Add("7");
         }
 
         private void n8_Click(object sender, EventArgs e)
         {
             if (calcBox.Text == "0")
             {
-                input = "8";
+                calcBox.Text = "8";
             }
             else
             {
-                input += "8";
+                calcBox.Text += "8";
             }
-            calcBox.Text = input;
+            numCount.Add(8.0);
+            log.Add("8");
+
         }
 
         private void n9_Click(object sender, EventArgs e)
@@ -207,6 +212,7 @@ namespace WindowsFormsApp3_2022vs
                 calcBox.Text += "9";
             }
             numCount.Add(9.0);
+            log.Add("9");
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -248,15 +254,6 @@ namespace WindowsFormsApp3_2022vs
             }
  
         }
-
-        
-        string operator1 = string.Empty;
-        string operator2 = string.Empty;
-        double result = 0.0;
-
-
-
-
 
 
         List<double> numCount = new List<double>();
@@ -300,6 +297,7 @@ namespace WindowsFormsApp3_2022vs
 
             operation = '-';
             calcBox.Text = operation.ToString();
+            log.Add("-");
         }
 
         private void divide_Click(object sender, EventArgs e)
@@ -308,6 +306,7 @@ namespace WindowsFormsApp3_2022vs
 
             operation = '/';
             calcBox.Text = operation.ToString();
+            log.Add("/");
         }
 
         private void mulitply_Click(object sender, EventArgs e)
@@ -316,6 +315,7 @@ namespace WindowsFormsApp3_2022vs
 
             operation = '*';
             calcBox.Text = operation.ToString();
+            log.Add("*");
         }
 
         private void ProcessFinalNumCountLogic()
@@ -388,6 +388,8 @@ namespace WindowsFormsApp3_2022vs
                 log.Add(result.ToString());
                 finalNumCount.Clear();
             }
+
+            log2.Add(string.Concat(log));
 
         }
 
