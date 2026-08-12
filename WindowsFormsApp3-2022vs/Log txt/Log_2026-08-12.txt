@@ -6729,3 +6729,18 @@ System.Collections.ObjectModel.ObservableCollection`1[System.String]
 2+2=4
 
 
+
+
+1000/20=50
+1000/20=50, 50/8=6,25
+
+
+2+22=24
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+2+33=35

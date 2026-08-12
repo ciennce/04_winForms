@@ -49,11 +49,6 @@ namespace WindowsFormsApp3_2022vs
             {
                 Directory.CreateDirectory(folderPath);
             }
-
-            
-
-
-
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
@@ -64,10 +59,8 @@ namespace WindowsFormsApp3_2022vs
             }
             else
             {
-                using(StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(string.Join(", ", log2));
-                }
+                File.AppendAllLines(path, log2);
+                log2.Clear();
             }
 
         }
