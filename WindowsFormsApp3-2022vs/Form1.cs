@@ -32,7 +32,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void History2_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            Schema();
         }
 
         private void Log_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -89,11 +89,6 @@ namespace WindowsFormsApp3_2022vs
 
         ObservableCollection<double> history2 = new ObservableCollection<double>();
 
-        private void Log_CollectionChanged2(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            Schema();
-        }
-
         private void Schema()
         {
             using (XmlWriter writer1 = XmlWriter.Create(dateipfad2, new XmlWriterSettings() { Indent = true }))
@@ -101,14 +96,14 @@ namespace WindowsFormsApp3_2022vs
             {
 
                 writer1.WriteStartDocument();
-                writer1.WriteStartElement("Datenbank");
-                writer1.WriteStartElement("History");
+                writer1.WriteStartElement("Calculations");
+                writer1.WriteStartElement("Calculation");
 
                 foreach (var item in history2)
 
                 {
 
-                    writer1.WriteStartElement("Ergebnis");
+                    writer1.WriteStartElement("Number");
                     writer1.WriteValue(item);
                     writer1.WriteEndElement();
 
@@ -323,6 +318,7 @@ namespace WindowsFormsApp3_2022vs
         {
             ProcessFinalNumCountLogic();
 
+
             operation = '+';
             calcBox.Text = operation.ToString();
             log.Add("+");
@@ -362,6 +358,7 @@ namespace WindowsFormsApp3_2022vs
             double newValue = double.Parse(combined); // "111" -> newValue; newValue=111 // error wrong format
 
             finalNumCount.Add(newValue); //finalNumCount = {111}
+            history2.Add(newValue);
             numCount.Clear();
         }
 
