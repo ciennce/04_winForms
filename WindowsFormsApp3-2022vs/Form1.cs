@@ -60,7 +60,6 @@ namespace WindowsFormsApp3_2022vs
             else
             {
                 File.AppendAllLines(path, log2);
-                log2.Clear();
             }
 
         }
@@ -258,6 +257,7 @@ namespace WindowsFormsApp3_2022vs
             finalNumCount.Clear();
             numCount.Clear();
             log.Clear();
+            log2.Clear();
         }
         private void n1_Click_1(object sender, EventArgs e)
         {
