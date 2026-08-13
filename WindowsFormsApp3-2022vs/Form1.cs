@@ -24,15 +24,21 @@ namespace WindowsFormsApp3_2022vs
         {
             InitializeComponent();
 
-
-            
             TimeStamp();
+            Schema();
             log2.CollectionChanged += Log_CollectionChanged;
+            history2.CollectionChanged += History2_CollectionChanged; 
+        }
+
+        private void History2_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Log_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             TimeStamp();
+
         }
 
         List<string> log = new List<string>();
@@ -64,7 +70,7 @@ namespace WindowsFormsApp3_2022vs
 
         }
 
-
+        
 
         new List<double> history = new List<double>();
 
@@ -76,7 +82,44 @@ namespace WindowsFormsApp3_2022vs
         const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
         string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
 
-        string input = string.Empty;
+
+
+        const string orderpfad2 = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
+        string dateipfad2 = Path.Combine(orderpfad2, "daten2.xml");
+
+        ObservableCollection<double> history2 = new ObservableCollection<double>();
+
+        private void Log_CollectionChanged2(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Schema();
+        }
+
+        private void Schema()
+        {
+            using (XmlWriter writer1 = XmlWriter.Create(dateipfad2, new XmlWriterSettings() { Indent = true }))
+
+            {
+
+                writer1.WriteStartDocument();
+                writer1.WriteStartElement("Datenbank");
+                writer1.WriteStartElement("History");
+
+                foreach (var item in history2)
+
+                {
+
+                    writer1.WriteStartElement("Ergebnis");
+                    writer1.WriteValue(item);
+                    writer1.WriteEndElement();
+
+                }
+
+                writer1.WriteEndElement();
+                writer1.WriteEndElement();
+
+            }
+        }
+
 
 
         private void n0_Click(object sender, EventArgs e)
@@ -244,8 +287,9 @@ namespace WindowsFormsApp3_2022vs
             {
                 calcBox.Text += ".";
             }
- 
         }
+
+        
 
 
         List<double> numCount = new List<double>();
