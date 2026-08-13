@@ -7,7 +7,9 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml; //XML
@@ -19,15 +21,14 @@ namespace WindowsFormsApp3_2022vs
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
-
             TimeStamp();
             Schema();
             log2.CollectionChanged += Log_CollectionChanged;
-            history2.CollectionChanged += History2_CollectionChanged; 
+            history2.CollectionChanged += History2_CollectionChanged;
         }
 
         private void History2_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -70,7 +71,7 @@ namespace WindowsFormsApp3_2022vs
 
         }
 
-        
+
 
         new List<double> history = new List<double>();
 
@@ -97,20 +98,24 @@ namespace WindowsFormsApp3_2022vs
 
                 writer1.WriteStartDocument();
                 writer1.WriteStartElement("Calculations");
-                writer1.WriteStartElement("Calculation");
 
-                foreach (var item in history2)
-
+                foreach (var op in log2)
                 {
+                    writer1.WriteStartElement("Calculation");
+                    writer1.WriteAttributeString("Operator", op);
+                    foreach (var item in history2)
 
-                    writer1.WriteStartElement("Number");
-                    writer1.WriteValue(item);
+                    {
+
+                        writer1.WriteStartElement("Number");
+                        writer1.WriteValue(item);
+                        writer1.WriteEndElement();
+                    }
                     writer1.WriteEndElement();
-
                 }
 
                 writer1.WriteEndElement();
-                writer1.WriteEndElement();
+
 
             }
         }
@@ -119,7 +124,8 @@ namespace WindowsFormsApp3_2022vs
 
         private void n0_Click(object sender, EventArgs e)
         {
-            if(calcBox.Text == "0")
+            Zero();
+            if (calcBox.Text == "0")
             {
                 calcBox.Text = "0";
             }
@@ -127,13 +133,14 @@ namespace WindowsFormsApp3_2022vs
             {
                 calcBox.Text += "0";
             }
-            
+
             numCount.Add(0.0);
             log.Add("0");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            Two();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "2";
@@ -148,6 +155,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void n3_Click(object sender, EventArgs e)
         {
+            Three();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "3";
@@ -162,6 +170,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void n4_Click(object sender, EventArgs e)
         {
+            Four();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "4";
@@ -176,6 +185,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void n5_Click(object sender, EventArgs e)
         {
+            Five();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "5";
@@ -190,6 +200,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void n6_Click(object sender, EventArgs e)
         {
+            Six();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "6";
@@ -204,6 +215,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Seven();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "7";
@@ -218,6 +230,7 @@ namespace WindowsFormsApp3_2022vs
 
         private void n8_Click(object sender, EventArgs e)
         {
+            Eight();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "8";
@@ -228,11 +241,11 @@ namespace WindowsFormsApp3_2022vs
             }
             numCount.Add(8.0);
             log.Add("8");
-
         }
 
         private void n9_Click(object sender, EventArgs e)
         {
+            Nine();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "9";
@@ -284,7 +297,7 @@ namespace WindowsFormsApp3_2022vs
             }
         }
 
-        
+
 
 
         List<double> numCount = new List<double>();
@@ -292,14 +305,18 @@ namespace WindowsFormsApp3_2022vs
 
         private void Clear_Click(object sender, EventArgs e)
         {
+            SmokeAlarmSound();
+            Thread.Sleep(400);
             calcBox.Text = "0";
             finalNumCount.Clear();
             numCount.Clear();
             log.Clear();
             log2.Clear();
+
         }
         private void n1_Click_1(object sender, EventArgs e)
         {
+            One();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "1";
@@ -310,7 +327,7 @@ namespace WindowsFormsApp3_2022vs
             }
             numCount.Add(1.0);
             log.Add("1");
-            
+
         } //Number 1
 
         char operation;
@@ -366,6 +383,9 @@ namespace WindowsFormsApp3_2022vs
         {
             log.Add("=");
 
+            outro();
+            Thread.Sleep(15500);
+
             ProcessFinalNumCountLogic();
             if (operation == '+')
             {
@@ -387,7 +407,7 @@ namespace WindowsFormsApp3_2022vs
                 double result = finalNumCount[0];
                 for (int i = 1; i < finalNumCount.Count; i++)
                 {
-                    result -= finalNumCount[i];   
+                    result -= finalNumCount[i];
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
@@ -402,7 +422,7 @@ namespace WindowsFormsApp3_2022vs
                 double result = finalNumCount[0];
                 for (int i = 1; i < finalNumCount.Count; i++)
                 {
-                    result /= finalNumCount[i];   
+                    result /= finalNumCount[i];
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
@@ -410,12 +430,12 @@ namespace WindowsFormsApp3_2022vs
                 finalNumCount.Clear();
             }
 
-            if(operation == '*')
+            if (operation == '*')
             {
                 double result = finalNumCount[0];
                 for (int i = 1; i < finalNumCount.Count; i++)
                 {
-                    result *= finalNumCount[i];   
+                    result *= finalNumCount[i];
                 }
                 calcBox.Text = result.ToString();
                 history.Add(result);
@@ -432,8 +452,84 @@ namespace WindowsFormsApp3_2022vs
             calcBox.Text = history.Last().ToString();
         }
 
-        
+        private void SmokeAlarmSound()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\smoke-alarm-beep.wav");
+            player.Play();
+        }
+
+        private void CorrectAnswer()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\correct_F5OqKUF.wav");
+            player.Play();
+        }
+
+        private void Zero()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\0.wav");
+            player.Play();
+
+        }
+
+        private void One()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\1.wav");
+            player.Play();
+        }
+
+        private void Two()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\2.wav");
+            player.Play();
+        }
+
+        private void Three()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\3.wav");
+            player.Play();
+        }
+
+        private void Four()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\4.wav");
+            player.Play();
+        }
+
+        private void Five()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\5.wav");
+            player.Play();
+        }
+
+        private void Six()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\6.wav");
+            player.Play();
+        }
+
+        private void Seven()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\7.wav");
+            player.Play();
+        }
+
+        private void Eight()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\8.wav");
+            player.Play();
+        }
+
+        private void Nine()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\9.wav");
+            player.Play();
+        }
+
+        private void outro()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\outro.wav");
+            player.Play();
+        }
+
     }
-
-
 }
