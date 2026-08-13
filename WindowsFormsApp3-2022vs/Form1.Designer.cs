@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.calcBox = new System.Windows.Forms.TextBox();
             this.n0 = new System.Windows.Forms.Button();
             this.n1 = new System.Windows.Forms.Button();
@@ -48,6 +49,8 @@
             this.mulitply = new System.Windows.Forms.Button();
             this.n3 = new System.Windows.Forms.Button();
             this.minus = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // calcBox
@@ -405,11 +408,23 @@
             this.minus.UseVisualStyleBackColor = false;
             this.minus.Click += new System.EventHandler(this.minus_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1211, 108);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(211, 200);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 426);
+            this.ClientSize = new System.Drawing.Size(476, 426);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.minus);
             this.Controls.Add(this.n3);
             this.Controls.Add(this.mulitply);
@@ -432,6 +447,7 @@
             this.Controls.Add(this.calcBox);
             this.Name = "Form1";
             this.Text = "Calculator";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,6 +475,7 @@
         private System.Windows.Forms.Button mulitply;
         private System.Windows.Forms.Button n3;
         private System.Windows.Forms.Button minus;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -44,3 +44,7 @@ System.Collections.ObjectModel.ObservableCollection`1[System.String]
 10+10=20
 10*526=5260
 1+1=2
+109*32=3488
+96+63=159
+8+8=16
+2*5=10

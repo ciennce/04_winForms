@@ -531,5 +531,11 @@ namespace WindowsFormsApp3_2022vs
             player.Play();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\sounds\speed.wav");
+            player.Play();
+            calcBox.Text = "*W SPEED* ❤️‍";
+        }
     }
 }
