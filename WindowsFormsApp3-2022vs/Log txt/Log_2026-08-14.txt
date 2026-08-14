@@ -1,0 +1,5 @@
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+33+33=66
+55*55=3025
+55*5+3=63
+2+2*2=8

@@ -20,3 +20,8 @@ C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\obj\Debug\
 C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.csproj.CoreCompileInputs.cache
 C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.exe
 C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\obj\Debug\WindowsFormsApp3-2022vs.pdb
+C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\bin\Debug\Figgle.dll
+C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\bin\Debug\Figgle.Fonts.dll
+C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\bin\Debug\Figgle.xml
+C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\bin\Debug\Figgle.Fonts.xml
+C:\Users\HoppeM\source\repos\ciennce\winForms\WindowsFormsApp3-2022vs\obj\Debug\WindowsF.9DAB49EC.Up2Date

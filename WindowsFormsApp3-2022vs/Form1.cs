@@ -39,7 +39,6 @@ namespace WindowsFormsApp3_2022vs
         private void Log_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             TimeStamp();
-
         }
 
         List<string> log = new List<string>();
@@ -82,6 +81,7 @@ namespace WindowsFormsApp3_2022vs
 
         const string ordnerpfad = "C:\\Users\\HoppeM\\source\\repos\\ciennce\\winForms\\WindowsFormsApp3-2022vs\\Daten XML";
         string dateipfad = Path.Combine(ordnerpfad, "daten.xml");
+        
 
 
 
@@ -95,7 +95,7 @@ namespace WindowsFormsApp3_2022vs
             using (XmlWriter writer1 = XmlWriter.Create(dateipfad2, new XmlWriterSettings() { Indent = true }))
 
             {
-
+                //string a = $@"C:\asdas{dateipfad}dasd";
                 writer1.WriteStartDocument();
                 writer1.WriteStartElement("Calculations");
 
@@ -152,10 +152,51 @@ namespace WindowsFormsApp3_2022vs
             numCount.Add(2.0);
             log.Add("2");
         }
+        private void playMusic(string buttonText)
+        {
+            switch (buttonText)
+            {
+                case "0":
+                    Zero();
+                    break;
+                case "1":
+                    One();
+                    break;
+                case "2":
+                    Two();
+                    break;
+                case "3":
+                    Three();
+                    break;
+                case "4":
+                    Four();
+                    break;
+                case "5":
+                    Five();
+                    break;
+                case "6":
+                    Six();
+                    break;
+                case "7":
+                    Seven();
+                    break;
+                case "8":
+                    Eight();
+                    break;
+                case "9":
+                    Nine();
+                    break;
+            }
+        }
 
         private void n3_Click(object sender, EventArgs e)
         {
-            Three();
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button) sender;
+            MessageBox.Show($"Button clicked: {button.Text}");
+            calcBox.Text= calcBox.Text.Equals("0")?button.Text:calcBox.Text+button.Text;
+            calcBox.Text+=button.Text;
+            playMusic(button.Text);
+            /*Three();
             if (calcBox.Text == "0")
             {
                 calcBox.Text = "3";
@@ -163,9 +204,9 @@ namespace WindowsFormsApp3_2022vs
             else
             {
                 calcBox.Text += "3";
-            }
-            numCount.Add(3.0);
-            log.Add("3");
+            }*/
+            numCount.Add(Convert.ToDouble(button.Text));
+            log.Add(button.Text);
         }
 
         private void n4_Click(object sender, EventArgs e)
@@ -383,8 +424,6 @@ namespace WindowsFormsApp3_2022vs
         {
             log.Add("=");
 
-            outro();
-            Thread.Sleep(15500);
 
             ProcessFinalNumCountLogic();
             if (operation == '+')
