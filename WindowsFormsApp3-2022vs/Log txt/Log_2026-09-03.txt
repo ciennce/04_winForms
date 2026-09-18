@@ -1,0 +1,5 @@
+System.Collections.ObjectModel.ObservableCollection`1[System.String]
+9+9=18
+10+10=20
+9+9=18
+9+9=18
